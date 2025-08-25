@@ -1,3 +1,5 @@
+use std::vec;
+
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
@@ -5,8 +7,22 @@ trait AppendBar {
 // TODO: Implement the trait `AppendBar` for a vector of strings.
 // `append_bar` should push the string "Bar" into the vector.
 
+impl AppendBar for Vec<String> {
+    fn append_bar(mut self) -> Self {
+        self.push(String::from("Bar"));
+        self
+    }
+}
+
 fn main() {
     // You can optionally experiment here.
+    let mut a = Vec::new();
+    a.push("asd".to_owned());
+
+    let orig = vec!["asd".to_owned(), "qwe".to_owned()];
+
+    let orig = orig.append_bar();
+    orig.append_bar();
 }
 
 #[cfg(test)]
