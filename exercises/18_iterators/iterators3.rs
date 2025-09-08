@@ -27,6 +27,7 @@ fn divide(a: i64, b: i64) -> Result<i64, DivisionError> {
 // Desired output: `Ok([1, 11, 1426, 3])`
 fn result_with_list() -> Result<[i64; 4], DivisionError> {
     let numbers = [27, 297, 38502, 81];
+//initial draft
     //let division_results: [Result<i64, DivisionError>; 4] = numbers.into_iter().map(|x| divide(x, 27)).collect::<Vec<Result<i64, DivisionError>>>().try_into().unwrap();
     //let results: [i64; 4] = division_results.into_iter().map(|v| v.unwrap()).collect::<Vec<i64>>().try_into().unwrap();
 
