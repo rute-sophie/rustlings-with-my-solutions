@@ -42,7 +42,16 @@ impl TryFrom<(i16, i16, i16)> for Color {
 impl TryFrom<[i16; 3]> for Color {
     type Error = IntoColorError;
 
-    fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {}
+    fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {
+        let [r, g, b] = arr;
+
+        let red: u8 = r.try_into().map_err(|_| IntoColorError::IntConversion)?;
+        let green: u8 = g.try_into().map_err(|_| IntoColorError::IntConversion)?;
+        let blue: u8 = b.try_into().map_err(|_| IntoColorError::IntConversion)?;
+
+
+        Ok(Color {red, green, blue})
+    }
 }
 
 // TODO: Slice implementation.
